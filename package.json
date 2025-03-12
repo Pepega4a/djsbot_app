@@ -18,6 +18,7 @@
   "homepage": "https://github.com/Pepega4a/djsbot_app#readme",
   "description": "",
   "dependencies": {
+    "@supabase/supabase-js": "^2.49.1",
     "discord.js": "^14.18.0",
     "dotenv": "^16.4.7",
     "fs": "^0.0.1-security",
