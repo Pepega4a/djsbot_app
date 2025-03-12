@@ -18,6 +18,6 @@ module.exports = {
         await languageMessage.react('flag_ru');
         await languageMessage.react('flag_gb');
 
-        interaction.reply({ content: '✅ Сообщение отправлено!', ephemeral: true });
+        return interaction.reply({ content: '✅ Сообщение отправлено!', ephemeral: true });
     }
 };

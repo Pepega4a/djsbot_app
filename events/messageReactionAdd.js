@@ -14,10 +14,12 @@ module.exports = {
         let language = null;
         let roleId = null;
 
-        if (reaction.emoji.name === 'flag_ru') {
+        const emojiName = reaction.emoji.name || reaction.emoji.identifier;
+        
+        if (emojiName === 'flag_ru' || emojiName === '🇷🇺') {
             language = 'ru';
             roleId = ROLE_ID_RU;
-        } else if (reaction.emoji.name === 'flag_gb') {
+        } else if (emojiName === 'flag_gb' || emojiName === '🇬🇧') {
             language = 'en';
             roleId = ROLE_ID_EN;
         }
@@ -28,7 +30,6 @@ module.exports = {
         
         await member.roles.add(roleId).catch(console.error);
 
-        // Обновляем язык в базе Supabase
         const { error } = await supabase
             .from('users')
             .update({ language })
