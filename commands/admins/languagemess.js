@@ -2,7 +2,7 @@ const { SlashCommandBuilder, PermissionFlagsBits } = require('discord.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('send_language_message')
+        .setName('languagemess')
         .setDescription('Отправляет сообщение с выбором языка')
         .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
     ,
@@ -12,11 +12,11 @@ module.exports = {
             return interaction.reply({ content: '❌ У вас нет прав для использования этой команды.', ephemeral: true });
         }
         const languageMessage = await interaction.channel.send(
-            '**🌍 Выберите ваш язык\Choose your language:**\n🇷🇺 Русский\n🇬🇧 English'
+            '**🌍 Выберите ваш язык / Choose your language:**\n🇷🇺 Русский\n🇬🇧 English'
         );
 
-        await languageMessage.react('flag_ru');
-        await languageMessage.react('flag_gb');
+        await languageMessage.react('🇷🇺');
+        await languageMessage.react('🇬🇧');
 
         return interaction.reply({ content: '✅ Сообщение отправлено!', ephemeral: true });
     }
